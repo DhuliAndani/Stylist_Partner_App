@@ -256,6 +256,8 @@ class _RequestScreenState extends BaseRouteState {
                                                                         _userRequest[index]
                                                                             .id);
                                                                   }
+                                                                  // Navigator.pop(
+                                                                  //     context);
                                                                 },
                                                                 child:
                                                                     Container(
@@ -462,6 +464,7 @@ class _RequestScreenState extends BaseRouteState {
   Future _requestCompleteConfirmationDialog(orderId) async {
     try {
       showDialog(
+          // barrierDismissible: false,
           context: context,
           builder: (context) => UserRequestAcceptDialog(
                 orderId,

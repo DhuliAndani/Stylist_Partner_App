@@ -208,6 +208,7 @@ class _UserRequestAcceptDialogState extends BaseRouteState {
         await apiHelper.completeRequest(orderId).then((result) {
           if (result.status == "1") {
             hideLoader();
+            // Navigator.pop(context);
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => BottomNavigationWidget(
                       a: widget.analytics,

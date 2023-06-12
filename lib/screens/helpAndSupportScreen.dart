@@ -78,7 +78,7 @@ class _HelpAndSupportScreenState extends BaseRouteState {
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
                     ),
-                    margin: EdgeInsets.only(top: 80),
+                    margin: EdgeInsets.only(top: 60),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: Container(
@@ -222,7 +222,7 @@ class _HelpAndSupportScreenState extends BaseRouteState {
 
   Widget _shimmer() {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(10),
       child: Shimmer.fromColors(
         baseColor: Colors.grey[300],
         highlightColor: Colors.grey[100],

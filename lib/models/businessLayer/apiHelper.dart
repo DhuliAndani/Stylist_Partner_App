@@ -23,6 +23,7 @@ import 'package:app/models/serviceModel.dart';
 import 'package:app/models/serviceVariantModel.dart';
 import 'package:app/models/userRequestModel.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class APIHelper {
@@ -823,10 +824,13 @@ class APIHelper {
   }
 
   Future<dynamic> getFaqs() async {
+    // debugPrint("global.languageCode----${global.languageCode}");
     try {
       final response = await http.post(Uri.parse("${global.baseUrl}faqs"),
           headers: await global.getApiHeaders(false),
-          body: json.encode({"lang": global.languageCode}));
+          body: json.encode({
+            //"lang": global.languageCode
+          }));
 
       dynamic recordList;
       if (response.statusCode == 200) {
@@ -1196,7 +1200,7 @@ class APIHelper {
       String description,
       File vendor_image}) async {
     try {
-      print("Enter click");
+      // print("Enter click");
       Response response;
       var dio = Dio();
       var formData = FormData.fromMap({
