@@ -21,6 +21,8 @@ class _BottomNavigationWidgetState extends BaseRouteState {
   int screenId = 0;
   int _currentIndex = 0;
   int locationIndex = 0;
+  int selectedIndex = 0;
+
   _BottomNavigationWidgetState({this.screenId}) : super();
 
   @override
@@ -108,7 +110,7 @@ class _BottomNavigationWidgetState extends BaseRouteState {
                   ),
                 ),
               )),
-          drawer: _currentIndex == 0
+          drawer: _currentIndex == 0 /*_currentIndex*/
               ? DrawerWidget(
                   a: widget.analytics,
                   o: widget.observer,
@@ -155,29 +157,4 @@ class _BottomNavigationWidgetState extends BaseRouteState {
         AppointmentHistoryScreen(a: widget.analytics, o: widget.observer),
         ProfileScreen(a: widget.analytics, o: widget.observer)
       ];
-
-//   @override
-//   void initState() {
-//     super.initState();
-//   }
 }
-
-
-
-
-
-//  Container(
-//             height: 71,
-//             width: MediaQuery.of(context).size.width,
-//             child: CurvedNavigationBar(
-//               height: 55,
-//               backgroundColor: Theme.of(context).primaryColor,
-//               items: <Widget>[
-//                 Icon(Icons.home, size: 30),
-//                 Icon(Icons.message, size: 30),
-//                 Icon(Icons.menu_book, size: 30),
-//                 Icon(Icons.person, size: 30),
-//               ],
-//               onTap: onItemTap,
-//             ),
-//           ),

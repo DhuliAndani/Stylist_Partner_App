@@ -670,7 +670,7 @@ class _HomeScreenState extends BaseRouteState {
   // _charts() {
   //   final barGroups = <BarChartGroupData>[
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 0,
   //       barRods: [
   //         BarChartRodData(
   //             y: y1,
@@ -680,7 +680,7 @@ class _HomeScreenState extends BaseRouteState {
   //       ],
   //     ),
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 1,
   //       barRods: [
   //         BarChartRodData(
   //             y: y2,
@@ -690,7 +690,7 @@ class _HomeScreenState extends BaseRouteState {
   //       ],
   //     ),
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 2,
   //       barRods: [
   //         BarChartRodData(
   //             y: y3,
@@ -700,7 +700,7 @@ class _HomeScreenState extends BaseRouteState {
   //       ],
   //     ),
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 3,
   //       barRods: [
   //         BarChartRodData(
   //             y: y4,
@@ -710,7 +710,7 @@ class _HomeScreenState extends BaseRouteState {
   //       ],
   //     ),
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 4,
   //       barRods: [
   //         BarChartRodData(
   //             y: y5,
@@ -720,7 +720,7 @@ class _HomeScreenState extends BaseRouteState {
   //       ],
   //     ),
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 5,
   //       barRods: [
   //         BarChartRodData(
   //             y: y6,
@@ -730,7 +730,7 @@ class _HomeScreenState extends BaseRouteState {
   //       ],
   //     ),
   //     BarChartGroupData(
-  //       x: 15,
+  //       x: 6,
   //       barRods: [
   //         BarChartRodData(
   //             y: y7,
