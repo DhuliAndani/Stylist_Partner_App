@@ -13,7 +13,8 @@ SharedPreferences sp;
 Currency currency = new Currency();
 CurrentUser user = new CurrentUser();
 // String baseUrlForImage = 'https://getstylelist.com/';
-String baseUrlForImage = 'https://staging.greatwisher.com/stylelist-backend/';
+// String baseUrlForImage = 'https://staging.greatwisher.com/stylelist-backend/';
+String baseUrlForImage = 'https://stylelist.tech/';
 String baseUrl = '${baseUrlForImage}api/partner/';
 
 List<String> rtlLanguageCodeLList = [

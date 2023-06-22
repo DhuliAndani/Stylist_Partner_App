@@ -538,19 +538,6 @@ class _AddCouponScreenState extends BaseRouteState {
     }
   }
 
-  // Future<void> _selectStartDate(BuildContext context) async {
-  //   final DateTime picked = await showDatePicker(
-  //       context: context,
-  //       initialDate: DateTime.now(),
-  //       firstDate: DateTime(2015, 8),
-  //       lastDate: DateTime(2101));
-  //   if (picked != null && picked != DateTime(2000)) {
-  //     setState(() {
-  //       _startdDate = picked;
-  //     });
-  //   }
-  // }
-
   Future _selectStartDate() async {
     try {
       int currentYear = DateTime.now().year;
@@ -574,19 +561,6 @@ class _AddCouponScreenState extends BaseRouteState {
           e.toString());
     }
   }
-
-  // Future<void> _seletEndDate(BuildContext context) async {
-  //   final DateTime picked = await showDatePicker(
-  //       context: context,
-  //       initialDate: _startdDate,
-  //       firstDate: _startdDate,
-  //       lastDate: DateTime(2023));
-  //   if (picked != null && picked != DateTime(2000)) {
-  //     setState(() {
-  //       _endDate = picked;
-  //     });
-  //   }
-  // }
 
   Future _seletEndDate() async {
     try {

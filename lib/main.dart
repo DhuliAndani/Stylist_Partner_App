@@ -61,7 +61,7 @@ class MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     var initialzationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/notificationdemo');
+        AndroidInitializationSettings('@mipmap/notification');
     var initializationSettingsIOS = IOSInitializationSettings();
     var initializationSettings = InitializationSettings(
       android: initialzationSettingsAndroid,
@@ -102,7 +102,7 @@ class MyAppState extends State<MyApp> {
               androidPlatformChannelSpecifics = AndroidNotificationDetails(
                   channel.id, channel.name,
                   channelDescription: channel.description,
-                  icon: 'newnotification',
+                  icon: 'notification',
                   styleInformation: bigPictureStyleInformation,
                   playSound: true);
             } else {
@@ -110,7 +110,7 @@ class MyAppState extends State<MyApp> {
               androidPlatformChannelSpecifics = AndroidNotificationDetails(
                   channel.id, channel.name,
                   channelDescription: channel.description,
-                  icon: 'newnotification',
+                  icon: 'notification',
                   styleInformation:
                       BigTextStyleInformation(message.notification.body),
                   playSound: true);
