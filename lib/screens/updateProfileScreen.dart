@@ -454,6 +454,7 @@ class _UpdateProfileScreenState extends BaseRouteState {
             snackBarMessage:
                 AppLocalizations.of(context).txt_please_enter_phone_number);
       } else if (_cPhoneNumber.text.length != 10) {
+        debugPrint("cPhoneNumber------->${_cPhoneNumber}");
         showSnackBar(
             key: _scaffoldKey,
             snackBarMessage: AppLocalizations.of(context)

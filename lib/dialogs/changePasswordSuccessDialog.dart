@@ -40,11 +40,12 @@ class _ChangePasswordSuccessDialogState extends BaseRouteState {
                 width: MediaQuery.of(context).size.width / 2,
                 child: Column(
                   children: [
-                    Text(
-                      AppLocalizations.of(context)
-                          .txt_successfully_changed_your_password,
-                      style: Theme.of(context).primaryTextTheme.titleLarge,
-                    ),
+                    Text("successfully changed your password"),
+                    // Text(
+                    //   AppLocalizations.of(context)
+                    //       .txt_successfully_changed_your_password,
+                    //   style: Theme.of(context).primaryTextTheme.titleLarge,
+                    // ),
                   ],
                 ),
               ),

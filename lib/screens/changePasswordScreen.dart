@@ -392,6 +392,12 @@ class _ChangePasswordScreenState extends BaseRouteState {
           if (isConnected) {
             showOnlyLoaderDialog();
 
+            debugPrint("global.user.id-----------${global.user.id}");
+            debugPrint(" _cOldPassword.text-----------${_cOldPassword.text}");
+            debugPrint("_cPassword.text-----------${_cPassword.text}");
+            debugPrint(
+                "_cConfirmPassword.text-----------${_cConfirmPassword.text}");
+
             await apiHelper
                 .changePassword(global.user.id, _cOldPassword.text.trim(),
                     _cPassword.text.trim(), _cConfirmPassword.text.trim())

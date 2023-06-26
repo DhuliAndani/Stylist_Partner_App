@@ -3,6 +3,7 @@ import 'package:app/models/businessLayer/baseRoute.dart';
 import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:app/models/homePageModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
@@ -239,19 +240,20 @@ class _HomeScreenState extends BaseRouteState {
                                       50 +
                                       220),
                               child: _isDataLoaded
-                                  ? Container(
-                                      alignment: Alignment.center,
-                                      child: Center(
-                                        child: Text(
-                                          AppLocalizations.of(context)
-                                              .txt_weekly_earn_will_shown_here,
-                                          style: Theme.of(context)
-                                              .primaryTextTheme
-                                              .titleSmall,
-                                        ),
-                                      ),
-                                    )
-                                  // _charts()
+                                  ?
+                                  // Container(
+                                  //     alignment: Alignment.center,
+                                  //     child: Center(
+                                  //       child: Text(
+                                  //         AppLocalizations.of(context)
+                                  //             .txt_weekly_earn_will_shown_here,
+                                  //         style: Theme.of(context)
+                                  //             .primaryTextTheme
+                                  //             .titleSmall,
+                                  //       ),
+                                  //     ),
+                                  //   )
+                                  _charts()
                                   : Center(
                                       child: CircularProgressIndicator(),
                                     ))
@@ -667,112 +669,112 @@ class _HomeScreenState extends BaseRouteState {
     }
   }
 
-  // _charts() {
-  //   final barGroups = <BarChartGroupData>[
-  //     BarChartGroupData(
-  //       x: 0,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y1,
-  //             colors: [Color(0xFF47505F)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     ),
-  //     BarChartGroupData(
-  //       x: 1,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y2,
-  //             colors: [Color(0xFFF44336)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     ),
-  //     BarChartGroupData(
-  //       x: 2,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y3,
-  //             colors: [Color(0xFF4CAF50)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     ),
-  //     BarChartGroupData(
-  //       x: 3,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y4,
-  //             colors: [Color(0xFFFDEB3B)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     ),
-  //     BarChartGroupData(
-  //       x: 4,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y5,
-  //             colors: [Color(0xFf40C4FF)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     ),
-  //     BarChartGroupData(
-  //       x: 5,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y6,
-  //             colors: [Color(0xFFE91E64)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     ),
-  //     BarChartGroupData(
-  //       x: 6,
-  //       barRods: [
-  //         BarChartRodData(
-  //             y: y7,
-  //             colors: [Color(0xFF9C27B0)],
-  //             width: 22,
-  //             borderRadius: BorderRadius.zero),
-  //       ],
-  //     )
-  //   ];
+  _charts() {
+    final barGroups = <BarChartGroupData>[
+      BarChartGroupData(
+        x: 0,
+        barRods: [
+          BarChartRodData(
+              y: y1,
+              colors: [Color(0xFF47505F)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      ),
+      BarChartGroupData(
+        x: 1,
+        barRods: [
+          BarChartRodData(
+              y: y2,
+              colors: [Color(0xFFF44336)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      ),
+      BarChartGroupData(
+        x: 2,
+        barRods: [
+          BarChartRodData(
+              y: y3,
+              colors: [Color(0xFF4CAF50)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      ),
+      BarChartGroupData(
+        x: 3,
+        barRods: [
+          BarChartRodData(
+              y: y4,
+              colors: [Color(0xFFFDEB3B)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      ),
+      BarChartGroupData(
+        x: 4,
+        barRods: [
+          BarChartRodData(
+              y: y5,
+              colors: [Color(0xFf40C4FF)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      ),
+      BarChartGroupData(
+        x: 5,
+        barRods: [
+          BarChartRodData(
+              y: y6,
+              colors: [Color(0xFFE91E64)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      ),
+      BarChartGroupData(
+        x: 6,
+        barRods: [
+          BarChartRodData(
+              y: y7,
+              colors: [Color(0xFF9C27B0)],
+              width: 22,
+              borderRadius: BorderRadius.zero),
+        ],
+      )
+    ];
 
-  //   final barChartData = BarChartData(
-  //     barGroups: barGroups,
-  //     barTouchData: BarTouchData(
-  //       allowTouchBarBackDraw: false,
-  //       enabled: false,
-  //     ),
-  //     borderData: FlBorderData(
-  //       show: false,
-  //     ),
-  //     gridData: FlGridData(show: false),
-  //     axisTitleData: FlAxisTitleData(
-  //       show: true,
-  //     ),
-  //     titlesData: FlTitlesData(
-  //       show: true,
-  //       bottomTitles: SideTitles(
-  //           showTitles: true, getTitles: (double val) => _days[(val.toInt())]),
-  //       leftTitles: SideTitles(
-  //         showTitles: false,
-  //         getTitles: (double val) {
-  //           if (val.toInt() % 5 != 0) return '';
-  //           return '${val.toInt() * 10}';
-  //         },
-  //       ),
-  //     ),
-  //   );
+    final barChartData = BarChartData(
+      barGroups: barGroups,
+      barTouchData: BarTouchData(
+        allowTouchBarBackDraw: false,
+        enabled: false,
+      ),
+      borderData: FlBorderData(
+        show: false,
+      ),
+      gridData: FlGridData(show: false),
+      axisTitleData: FlAxisTitleData(
+        show: true,
+      ),
+      titlesData: FlTitlesData(
+        show: true,
+        bottomTitles: SideTitles(
+            showTitles: true, getTitles: (double val) => _days[(val.toInt())]),
+        leftTitles: SideTitles(
+          showTitles: false,
+          getTitles: (double val) {
+            if (val.toInt() % 5 != 0) return '';
+            return '${val.toInt() * 10}';
+          },
+        ),
+      ),
+    );
 
-  //   return BarChart(
-  //     barChartData,
-  //     swapAnimationDuration: Duration(milliseconds: 500),
-  //   );
-  // }
+    return BarChart(
+      barChartData,
+      swapAnimationDuration: Duration(milliseconds: 500),
+    );
+  }
 
   Widget _shimmer1() {
     return Shimmer.fromColors(
