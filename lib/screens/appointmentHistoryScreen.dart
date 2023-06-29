@@ -116,7 +116,7 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                                         index]
                                                                     .user
                                                                     .image ==
-                                                                'N/A'
+                                                                null
                                                             ? CircleAvatar(
                                                                 radius: 25,
                                                                 backgroundImage:
