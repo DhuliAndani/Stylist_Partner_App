@@ -110,7 +110,7 @@ class _BottomNavigationWidgetState extends BaseRouteState {
                   ),
                 ),
               )),
-          drawer: _currentIndex == 0 /*_currentIndex*/
+          drawer: _currentIndex == _currentIndex /* 0 */
               ? DrawerWidget(
                   a: widget.analytics,
                   o: widget.observer,
