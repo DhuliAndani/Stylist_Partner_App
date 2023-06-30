@@ -25,7 +25,7 @@
     </queries>
    <application
         android:label="partner_app"
-        android:name="${applicationName}"
+        android:name="${partner_app}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

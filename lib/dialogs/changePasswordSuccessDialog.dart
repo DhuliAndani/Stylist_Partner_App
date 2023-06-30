@@ -17,7 +17,6 @@ class _ChangePasswordSuccessDialogState extends BaseRouteState {
 
   @override
   Widget build(BuildContext context) {
-    var AppLocalizations;
     return AlertDialog(
       contentPadding: EdgeInsets.only(left: 0, right: 0),
       content: Padding(

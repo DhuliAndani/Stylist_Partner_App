@@ -38,6 +38,7 @@ class _HomeScreenState extends BaseRouteState {
   _HomeScreenState() : super();
   @override
   Widget build(BuildContext context) {
+    debugPrint("Image-----${global.baseUrlForImage}${global.user.vendor_logo}");
     return Scaffold(
       // drawer: DrawerWidget(
       //   a: widget.analytics,
