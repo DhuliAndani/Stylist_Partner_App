@@ -66,6 +66,7 @@ class _SignInScreenState extends BaseRouteState {
                             BlendMode.screen,
                           ),
                           child: Image.asset(
+                            
                             'assets/banner.jpg',
                             fit: BoxFit.cover,
                           ),
