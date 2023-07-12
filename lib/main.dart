@@ -16,6 +16,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
+// New Project clone
+
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
   'high_importance_channel_for_partner',
@@ -171,12 +173,10 @@ class MyAppState extends State<MyApp> {
                 GlobalCupertinoLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
               ],
-
               home: SplashScreen(
                 a: analytics,
                 o: observer,
-              )
-          );
+              ));
         },
       );
 }
