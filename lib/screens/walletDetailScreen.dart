@@ -6,6 +6,7 @@ import 'package:app/models/expertModel.dart';
 import 'package:app/models/shareSendPendingModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 
 class WalletDetailScreen extends BaseRoute {
   final String name;
@@ -140,11 +141,9 @@ class _WalletDetailScreenState extends BaseRouteState {
                                       return Card(
                                           margin: EdgeInsets.only(top: 8),
                                           child: Padding(
-                                            padding: const EdgeInsets.only(
-                                              left: 4.0,
-                                              right: 4,
-                                              bottom: 4,
-                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: Get.width * 0.02,
+                                                vertical: Get.height * 0.011),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
@@ -185,8 +184,10 @@ class _WalletDetailScreenState extends BaseRouteState {
                                                       GestureDetector(
                                                         onTap: () {},
                                                         child: Container(
-                                                          height: 30,
-                                                          width: 130,
+                                                          height: Get.height *
+                                                              0.035,
+                                                          width:
+                                                              Get.width * 0.32,
                                                           decoration: BoxDecoration(
                                                               color: shareList[index].statustext == "Pending"
                                                                   ? Colors.amber
@@ -200,8 +201,6 @@ class _WalletDetailScreenState extends BaseRouteState {
                                                                                   ? Colors.blue[600]
                                                                                   : Colors.red,
                                                               borderRadius: BorderRadius.all(Radius.circular(5))),
-                                                          padding:
-                                                              EdgeInsets.all(4),
                                                           child: Center(
                                                             child: Text(
                                                               '${shareList[index].statustext}',
@@ -244,7 +243,12 @@ class _WalletDetailScreenState extends BaseRouteState {
                                                           children: <Widget>[
                                                             SizedBox(
                                                               child: Container(
-                                                                width: 70,
+                                                                height:
+                                                                    Get.height *
+                                                                        0.035,
+                                                                width:
+                                                                    Get.width *
+                                                                        0.151,
                                                                 decoration:
                                                                     BoxDecoration(
                                                                   borderRadius: global
@@ -274,7 +278,6 @@ class _WalletDetailScreenState extends BaseRouteState {
                                                                         350],
                                                                   ),
                                                                 ),
-                                                                height: 25,
                                                                 child: Center(
                                                                   child: Text(
                                                                     '${shareList[index].paymentStatus}',
@@ -285,14 +288,18 @@ class _WalletDetailScreenState extends BaseRouteState {
                                                                             FontWeight
                                                                                 .w500,
                                                                         fontSize:
-                                                                            13),
+                                                                            Get.height *
+                                                                                0.016),
                                                                   ),
                                                                 ),
                                                               ),
                                                             ),
                                                             Container(
-                                                              height: 25,
-                                                              width: 70,
+                                                              height:
+                                                                  Get.height *
+                                                                      0.035,
+                                                              width: Get.width *
+                                                                  0.151,
                                                               child: Center(
                                                                 child: Text(
                                                                   "${global.currency.currency_sign}${shareList[index].total_price}",
@@ -303,7 +310,8 @@ class _WalletDetailScreenState extends BaseRouteState {
                                                                           FontWeight
                                                                               .w500,
                                                                       fontSize:
-                                                                          13),
+                                                                          Get.height *
+                                                                              0.016),
                                                                 ),
                                                               ),
                                                               decoration:

@@ -8,6 +8,7 @@ import 'package:app/widgets/bottomNavigationBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 class OrderScreen extends BaseRoute {
@@ -129,269 +130,357 @@ class _OrderScreenState extends BaseRouteState {
                                         itemBuilder:
                                             (BuildContext context, int index) {
                                           return Container(
-                                            height: 123,
+                                            //height: Get.height * 0.17,
                                             padding: const EdgeInsets.only(
                                                 bottom: 8),
                                             child: Card(
-                                                child: Row(
-                                              children: [
-                                                Expanded(
-                                                  child: Container(
-                                                      padding: global.isRTL
-                                                          ? EdgeInsets.only(
-                                                              top: 5, right: 5)
-                                                          : EdgeInsets.only(
-                                                              top: 5, left: 5),
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Padding(
-                                                            padding: EdgeInsets
-                                                                .only(),
-                                                            child: Text(
-                                                              _orderList[index]
-                                                                          .user !=
-                                                                      null
-                                                                  ? '${_orderList[index].order_cart_id}-${_orderList[index].user.name}'
-                                                                  : '${_orderList[index].order_cart_id}-No name',
-                                                              style: TextStyle(
-                                                                  fontSize: 14,
-                                                                  color: Colors
-                                                                      .black),
-                                                              overflow:
-                                                                  TextOverflow
-                                                                      .ellipsis,
-                                                              maxLines: 1,
-                                                            ),
-                                                          ),
-                                                          _orderList[index]
-                                                                      .user !=
-                                                                  null
-                                                              ? Padding(
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .only(),
-                                                                  child: Text(
-                                                                    _orderList[index].user !=
-                                                                            null
-                                                                        ? '${_orderList[index].user.user_phone}'
-                                                                        : '',
-                                                                    style: TextStyle(
-                                                                        color: Colors.grey[
-                                                                            600],
-                                                                        fontSize:
-                                                                            13),
-                                                                  ),
-                                                                )
-                                                              : SizedBox(),
-                                                          Row(
-                                                            children: [
-                                                              Container(
-                                                                height: 60,
-                                                                width: 60,
-                                                                child: _orderList[index]
-                                                                            .productImage ==
-                                                                        ""
-                                                                    ? ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.all(Radius.circular(5)),
-                                                                        child: Image
-                                                                            .asset(
-                                                                          'assets/sample_image.jpg',
-                                                                          fit: BoxFit
-                                                                              .cover,
-                                                                        ),
-                                                                      )
-                                                                    : ClipRRect(
-                                                                        borderRadius:
-                                                                            BorderRadius.all(Radius.circular(5)),
-                                                                        child:
-                                                                            CachedNetworkImage(
-                                                                          imageUrl:
-                                                                              global.baseUrlForImage + _orderList[index].productImage,
-                                                                          imageBuilder: (context, imageProvider) =>
-                                                                              Container(
-                                                                            height:
-                                                                                60,
-                                                                            decoration:
-                                                                                BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
-                                                                          ),
-                                                                          placeholder: (context, url) =>
-                                                                              Center(child: CircularProgressIndicator()),
-                                                                          errorWidget: (context, url, error) =>
-                                                                              Icon(Icons.error),
-                                                                        ),
-                                                                      ),
-                                                              ),
-                                                              Expanded(
-                                                                child:
-                                                                    Container(
-                                                                  margin: global
-                                                                          .isRTL
-                                                                      ? EdgeInsets.only(
-                                                                          right:
-                                                                              5)
-                                                                      : EdgeInsets.only(
-                                                                          left:
-                                                                              5),
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Padding(
-                                                                        padding:
-                                                                            EdgeInsets.only(),
-                                                                        child:
-                                                                            Text(
-                                                                          '${_orderList[index].productName}',
-                                                                          overflow:
-                                                                              TextOverflow.ellipsis,
-                                                                          maxLines:
-                                                                              2,
-                                                                          style: TextStyle(
-                                                                              color: Colors.black,
-                                                                              fontSize: 14),
-                                                                        ),
-                                                                      ),
-                                                                      Padding(
-                                                                        padding:
-                                                                            EdgeInsets.only(),
-                                                                        child:
-                                                                            Text(
-                                                                          '${_orderList[index].quantity}',
-                                                                          style: TextStyle(
-                                                                              color: Colors.grey[600],
-                                                                              fontSize: 13),
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              )
-                                                            ],
-                                                          )
-                                                        ],
-                                                      )),
-                                                ),
-                                                Expanded(
-                                                  child: Container(
-                                                    padding: EdgeInsets.only(
-                                                        bottom: 5),
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      children: [
-                                                        GestureDetector(
-                                                          onTap: () {
-                                                            if (_orderList[
-                                                                        index]
-                                                                    .statustext ==
-                                                                "Pending") {
-                                                              _orderConfirmationDialog(
-                                                                  _orderList[
-                                                                          index]
-                                                                      .store_order_id);
-                                                            }
-                                                          },
-                                                          child: Container(
-                                                            height: 30,
-                                                            width: 130,
-                                                            decoration: BoxDecoration(
-                                                                color: _orderList[index].statustext == "Pending"
-                                                                    ? Colors.amber
-                                                                    : _orderList[index].statustext == "Completed"
-                                                                        ? Colors.green[600]
-                                                                        : _orderList[index].statustext == "Cancelled"
-                                                                            ? Colors.grey
-                                                                            : _orderList[index].statustext == "Payment Failed"
-                                                                                ? Colors.red
-                                                                                : _orderList[index].statustext == "Confirmed"
-                                                                                    ? Colors.blue[600]
-                                                                                    : Colors.red,
-                                                                borderRadius: BorderRadius.all(Radius.circular(5))),
-                                                            padding:
-                                                                EdgeInsets.all(
-                                                                    4),
-                                                            child: Center(
+                                                child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  vertical: Get.height * 0.02,
+                                                  horizontal:
+                                                      Get.width * 0.015),
+                                              child: Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: Container(
+                                                        padding: global.isRTL
+                                                            ? EdgeInsets.only(
+                                                                top: 5,
+                                                                right: 5)
+                                                            : EdgeInsets.only(
+                                                                top: 5,
+                                                                left: 5),
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .only(),
                                                               child: Text(
-                                                                '${_orderList[index].statustext}',
-                                                                style: Theme.of(
-                                                                        context)
-                                                                    .primaryTextTheme
-                                                                    .headlineSmall,
+                                                                _orderList[index]
+                                                                            .user !=
+                                                                        null
+                                                                    ? '${_orderList[index].order_cart_id}-${_orderList[index].user.name}'
+                                                                    : '${_orderList[index].order_cart_id}-No name',
+                                                                style: TextStyle(
+                                                                    fontSize:
+                                                                        Get.height *
+                                                                            0.018,
+                                                                    color: Colors
+                                                                        .black),
                                                                 overflow:
                                                                     TextOverflow
                                                                         .ellipsis,
+                                                                maxLines: 1,
+                                                              ),
+                                                            ),
+                                                            _orderList[index]
+                                                                        .user !=
+                                                                    null
+                                                                ? Padding(
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .only(),
+                                                                    child: Text(
+                                                                      _orderList[index].user !=
+                                                                              null
+                                                                          ? '${_orderList[index].user.user_phone}'
+                                                                          : '',
+                                                                      style: TextStyle(
+                                                                          color: Colors.grey[
+                                                                              600],
+                                                                          fontSize:
+                                                                              Get.height * 0.016),
+                                                                    ),
+                                                                  )
+                                                                : SizedBox(),
+                                                            Row(
+                                                              children: [
+                                                                Container(
+                                                                  height:
+                                                                      Get.height *
+                                                                          0.073,
+                                                                  width:
+                                                                      Get.width *
+                                                                          0.151,
+                                                                  child: _orderList[index]
+                                                                              .productImage ==
+                                                                          ""
+                                                                      ? ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.all(Radius.circular(5)),
+                                                                          child:
+                                                                              Image.asset(
+                                                                            'assets/sample_image.jpg',
+                                                                            fit:
+                                                                                BoxFit.cover,
+                                                                          ),
+                                                                        )
+                                                                      : ClipRRect(
+                                                                          borderRadius:
+                                                                              BorderRadius.all(Radius.circular(5)),
+                                                                          child:
+                                                                              CachedNetworkImage(
+                                                                            imageUrl:
+                                                                                global.baseUrlForImage + _orderList[index].productImage,
+                                                                            imageBuilder: (context, imageProvider) =>
+                                                                                Container(
+                                                                              height: 60,
+                                                                              decoration: BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
+                                                                            ),
+                                                                            placeholder: (context, url) =>
+                                                                                Center(child: CircularProgressIndicator()),
+                                                                            errorWidget: (context, url, error) =>
+                                                                                Icon(Icons.error),
+                                                                          ),
+                                                                        ),
+                                                                ),
+                                                                Expanded(
+                                                                  child:
+                                                                      Container(
+                                                                    margin: global
+                                                                            .isRTL
+                                                                        ? EdgeInsets.only(
+                                                                            right:
+                                                                                5)
+                                                                        : EdgeInsets.only(
+                                                                            left:
+                                                                                5),
+                                                                    child:
+                                                                        Column(
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment
+                                                                              .start,
+                                                                      children: [
+                                                                        Padding(
+                                                                          padding:
+                                                                              EdgeInsets.only(),
+                                                                          child:
+                                                                              Text(
+                                                                            '${_orderList[index].productName}',
+                                                                            overflow:
+                                                                                TextOverflow.ellipsis,
+                                                                            maxLines:
+                                                                                2,
+                                                                            style:
+                                                                                TextStyle(color: Colors.black, fontSize: Get.height * 0.018),
+                                                                          ),
+                                                                        ),
+                                                                        Padding(
+                                                                          padding:
+                                                                              EdgeInsets.only(),
+                                                                          child:
+                                                                              Text(
+                                                                            '${_orderList[index].quantity}',
+                                                                            style:
+                                                                                TextStyle(color: Colors.grey[600], fontSize: Get.height * 0.016),
+                                                                          ),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                  ),
+                                                                )
+                                                              ],
+                                                            )
+                                                          ],
+                                                        )),
+                                                  ),
+                                                  Expanded(
+                                                    child: Container(
+                                                      padding: EdgeInsets.only(
+                                                          bottom: 5),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          GestureDetector(
+                                                            onTap: () {
+                                                              if (_orderList[
+                                                                          index]
+                                                                      .statustext ==
+                                                                  "Pending") {
+                                                                _orderConfirmationDialog(
+                                                                    _orderList[
+                                                                            index]
+                                                                        .store_order_id);
+                                                              }
+                                                            },
+                                                            child: Container(
+                                                              height:
+                                                                  Get.height *
+                                                                      0.04,
+                                                              width: Get.width *
+                                                                  0.3,
+                                                              decoration: BoxDecoration(
+                                                                  color: _orderList[index].statustext == "Pending"
+                                                                      ? Colors.amber
+                                                                      : _orderList[index].statustext == "Completed"
+                                                                          ? Colors.green[600]
+                                                                          : _orderList[index].statustext == "Cancelled"
+                                                                              ? Colors.grey
+                                                                              : _orderList[index].statustext == "Payment Failed"
+                                                                                  ? Colors.red
+                                                                                  : _orderList[index].statustext == "Confirmed"
+                                                                                      ? Colors.blue[600]
+                                                                                      : Colors.red,
+                                                                  borderRadius: BorderRadius.all(Radius.circular(5))),
+                                                              padding:
+                                                                  EdgeInsets
+                                                                      .all(4),
+                                                              child: Center(
+                                                                child: Text(
+                                                                  '${_orderList[index].statustext}',
+                                                                  style: Theme.of(
+                                                                          context)
+                                                                      .primaryTextTheme
+                                                                      .headlineSmall,
+                                                                  overflow:
+                                                                      TextOverflow
+                                                                          .ellipsis,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
-                                                        ),
-                                                        Padding(
-                                                          padding: global.isRTL
-                                                              ? EdgeInsets.only(
-                                                                  top: 3,
-                                                                  left: 5)
-                                                              : EdgeInsets.only(
-                                                                  top: 3,
-                                                                  right: 5),
-                                                          child: Text(
-                                                            '${_orderList[index].order_date}',
-                                                            style: TextStyle(
-                                                                color: Colors
-                                                                    .grey[600],
-                                                                fontSize: 13),
+                                                          Padding(
+                                                            padding: global
+                                                                    .isRTL
+                                                                ? EdgeInsets
+                                                                    .only(
+                                                                        top: 3,
+                                                                        left: 5)
+                                                                : EdgeInsets
+                                                                    .only(
+                                                                        top: 3,
+                                                                        right:
+                                                                            5),
+                                                            child: Text(
+                                                              '${_orderList[index].order_date}',
+                                                              style: TextStyle(
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      600],
+                                                                  fontSize:
+                                                                      Get.height *
+                                                                          0.016),
+                                                            ),
                                                           ),
-                                                        ),
-                                                        Padding(
-                                                          padding: global.isRTL
-                                                              ? EdgeInsets.only(
-                                                                  top: 2,
-                                                                  bottom: 2,
-                                                                  left: 5)
-                                                              : EdgeInsets.only(
-                                                                  top: 2,
-                                                                  bottom: 2,
-                                                                  right: 5),
-                                                          child: Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .min,
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .start,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .center,
-                                                            children: <Widget>[
-                                                              SizedBox(
-                                                                child:
-                                                                    Container(
-                                                                  width: 40,
+                                                          Padding(
+                                                            padding: global
+                                                                    .isRTL
+                                                                ? EdgeInsets
+                                                                    .only(
+                                                                        top: 2,
+                                                                        bottom:
+                                                                            2,
+                                                                        left: 5)
+                                                                : EdgeInsets
+                                                                    .only(
+                                                                        top: 2,
+                                                                        bottom:
+                                                                            2,
+                                                                        right:
+                                                                            5),
+                                                            child: Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .start,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: <
+                                                                  Widget>[
+                                                                SizedBox(
+                                                                  child:
+                                                                      Container(
+                                                                    height: Get
+                                                                            .height *
+                                                                        0.033,
+                                                                    width:
+                                                                        Get.width *
+                                                                            0.1,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      borderRadius: global
+                                                                              .isRTL
+                                                                          ? BorderRadius
+                                                                              .only(
+                                                                              topRight: new Radius.circular(5.0),
+                                                                              bottomRight: new Radius.circular(5.0),
+                                                                            )
+                                                                          : BorderRadius
+                                                                              .only(
+                                                                              topLeft: new Radius.circular(5.0),
+                                                                              bottomLeft: new Radius.circular(5.0),
+                                                                            ),
+                                                                      color: Colors
+                                                                              .grey[
+                                                                          350],
+                                                                      border:
+                                                                          new Border
+                                                                              .all(
+                                                                        color: Colors
+                                                                            .grey[350],
+                                                                      ),
+                                                                    ),
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Text(
+                                                                        AppLocalizations.of(context)
+                                                                            .lbl_qty,
+                                                                        style: TextStyle(
+                                                                            color:
+                                                                                Colors.black,
+                                                                            fontWeight: FontWeight.w500,
+                                                                            fontSize: Get.height * 0.016),
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Container(
+                                                                  height:
+                                                                      Get.height *
+                                                                          0.033,
+                                                                  width:
+                                                                      Get.width *
+                                                                          0.1,
+                                                                  child: Center(
+                                                                    child: Text(
+                                                                      "${_orderList[index].qty}",
+                                                                      style: TextStyle(
+                                                                          color: Colors
+                                                                              .black,
+                                                                          fontWeight: FontWeight
+                                                                              .w500,
+                                                                          fontSize:
+                                                                              Get.height * 0.016),
+                                                                    ),
+                                                                  ),
                                                                   decoration:
                                                                       BoxDecoration(
                                                                     borderRadius: global
                                                                             .isRTL
                                                                         ? BorderRadius
                                                                             .only(
-                                                                            topRight:
-                                                                                new Radius.circular(5.0),
-                                                                            bottomRight:
-                                                                                new Radius.circular(5.0),
-                                                                          )
-                                                                        : BorderRadius
-                                                                            .only(
                                                                             topLeft:
                                                                                 new Radius.circular(5.0),
                                                                             bottomLeft:
                                                                                 new Radius.circular(5.0),
+                                                                          )
+                                                                        : BorderRadius
+                                                                            .only(
+                                                                            topRight:
+                                                                                new Radius.circular(5.0),
+                                                                            bottomRight:
+                                                                                new Radius.circular(5.0),
                                                                           ),
-                                                                    color: Colors
-                                                                            .grey[
-                                                                        350],
                                                                     border:
                                                                         new Border
                                                                             .all(
@@ -400,179 +489,121 @@ class _OrderScreenState extends BaseRouteState {
                                                                           350],
                                                                     ),
                                                                   ),
-                                                                  height: 25,
-                                                                  child: Center(
-                                                                    child: Text(
-                                                                      AppLocalizations.of(
-                                                                              context)
-                                                                          .lbl_qty,
-                                                                      style: TextStyle(
-                                                                          color: Colors
-                                                                              .black,
-                                                                          fontWeight: FontWeight
-                                                                              .w500,
-                                                                          fontSize:
-                                                                              13),
-                                                                    ),
-                                                                  ),
                                                                 ),
-                                                              ),
-                                                              Container(
-                                                                height: 25,
-                                                                width: 40,
-                                                                child: Center(
-                                                                  child: Text(
-                                                                    "${_orderList[index].qty}",
-                                                                    style: TextStyle(
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w500,
-                                                                        fontSize:
-                                                                            13),
-                                                                  ),
-                                                                ),
-                                                                decoration:
-                                                                    BoxDecoration(
-                                                                  borderRadius: global
-                                                                          .isRTL
-                                                                      ? BorderRadius
-                                                                          .only(
-                                                                          topLeft:
-                                                                              new Radius.circular(5.0),
-                                                                          bottomLeft:
-                                                                              new Radius.circular(5.0),
-                                                                        )
-                                                                      : BorderRadius
-                                                                          .only(
-                                                                          topRight:
-                                                                              new Radius.circular(5.0),
-                                                                          bottomRight:
-                                                                              new Radius.circular(5.0),
-                                                                        ),
-                                                                  border:
-                                                                      new Border
-                                                                          .all(
-                                                                    color: Colors
-                                                                            .grey[
-                                                                        350],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
+                                                              ],
+                                                            ),
                                                           ),
-                                                        ),
-                                                        _orderList[index]
-                                                                    .order !=
-                                                                null
-                                                            ? Padding(
-                                                                padding: global
-                                                                        .isRTL
-                                                                    ? EdgeInsets.only(
-                                                                        top: 2,
-                                                                        bottom:
-                                                                            2,
-                                                                        left: 5)
-                                                                    : EdgeInsets.only(
-                                                                        top: 2,
-                                                                        bottom:
-                                                                            2,
-                                                                        right:
-                                                                            5),
-                                                                child: Row(
-                                                                  mainAxisSize:
-                                                                      MainAxisSize
-                                                                          .min,
-                                                                  mainAxisAlignment:
-                                                                      MainAxisAlignment
-                                                                          .start,
-                                                                  crossAxisAlignment:
-                                                                      CrossAxisAlignment
-                                                                          .center,
-                                                                  children: <
-                                                                      Widget>[
-                                                                    SizedBox(
-                                                                      child:
-                                                                          Container(
-                                                                        width:
-                                                                            70,
+                                                          _orderList[index]
+                                                                      .order !=
+                                                                  null
+                                                              ? Padding(
+                                                                  padding: global
+                                                                          .isRTL
+                                                                      ? EdgeInsets.only(
+                                                                          top:
+                                                                              2,
+                                                                          bottom:
+                                                                              2,
+                                                                          left:
+                                                                              5)
+                                                                      : EdgeInsets.only(
+                                                                          top:
+                                                                              2,
+                                                                          bottom:
+                                                                              2,
+                                                                          right:
+                                                                              5),
+                                                                  child: Row(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .min,
+                                                                    mainAxisAlignment:
+                                                                        MainAxisAlignment
+                                                                            .start,
+                                                                    crossAxisAlignment:
+                                                                        CrossAxisAlignment
+                                                                            .center,
+                                                                    children: <
+                                                                        Widget>[
+                                                                      SizedBox(
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              Get.height * 0.033,
+                                                                          width:
+                                                                              Get.width * 0.14,
+                                                                          decoration:
+                                                                              BoxDecoration(
+                                                                            borderRadius: global.isRTL
+                                                                                ? BorderRadius.only(
+                                                                                    topRight: new Radius.circular(5.0),
+                                                                                    bottomRight: new Radius.circular(5.0),
+                                                                                  )
+                                                                                : BorderRadius.only(
+                                                                                    topLeft: new Radius.circular(5.0),
+                                                                                    bottomLeft: new Radius.circular(5.0),
+                                                                                  ),
+                                                                            color:
+                                                                                Colors.grey[350],
+                                                                            border:
+                                                                                new Border.all(
+                                                                              color: Colors.grey[350],
+                                                                            ),
+                                                                          ),
+                                                                          child:
+                                                                              Center(
+                                                                            child:
+                                                                                Text(
+                                                                              '${_orderList[index].order.payment_status}',
+                                                                              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: Get.height * 0.016),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      Container(
+                                                                        height: Get.height *
+                                                                            0.033,
+                                                                        width: Get.width *
+                                                                            0.18,
+                                                                        child:
+                                                                            Center(
+                                                                          child:
+                                                                              Text(
+                                                                            "${global.currency.currency_sign}${_orderList[index].total_price}",
+                                                                            style: TextStyle(
+                                                                                color: Colors.black,
+                                                                                fontWeight: FontWeight.w500,
+                                                                                fontSize: Get.height * 0.016),
+                                                                          ),
+                                                                        ),
                                                                         decoration:
                                                                             BoxDecoration(
                                                                           borderRadius: global.isRTL
                                                                               ? BorderRadius.only(
-                                                                                  topRight: new Radius.circular(5.0),
-                                                                                  bottomRight: new Radius.circular(5.0),
-                                                                                )
-                                                                              : BorderRadius.only(
                                                                                   topLeft: new Radius.circular(5.0),
                                                                                   bottomLeft: new Radius.circular(5.0),
+                                                                                )
+                                                                              : BorderRadius.only(
+                                                                                  topRight: new Radius.circular(5.0),
+                                                                                  bottomRight: new Radius.circular(5.0),
                                                                                 ),
-                                                                          color:
-                                                                              Colors.grey[350],
                                                                           border:
                                                                               new Border.all(
                                                                             color:
                                                                                 Colors.grey[350],
                                                                           ),
                                                                         ),
-                                                                        height:
-                                                                            25,
-                                                                        child:
-                                                                            Center(
-                                                                          child:
-                                                                              Text(
-                                                                            '${_orderList[index].order.payment_status}',
-                                                                            style: TextStyle(
-                                                                                color: Colors.black,
-                                                                                fontWeight: FontWeight.w500,
-                                                                                fontSize: 13),
-                                                                          ),
-                                                                        ),
                                                                       ),
-                                                                    ),
-                                                                    Container(
-                                                                      height:
-                                                                          25,
-                                                                      width: 70,
-                                                                      child:
-                                                                          Center(
-                                                                        child:
-                                                                            Text(
-                                                                          "${global.currency.currency_sign}${_orderList[index].total_price}",
-                                                                          style: TextStyle(
-                                                                              color: Colors.black,
-                                                                              fontWeight: FontWeight.w500,
-                                                                              fontSize: 13),
-                                                                        ),
-                                                                      ),
-                                                                      decoration:
-                                                                          BoxDecoration(
-                                                                        borderRadius: global.isRTL
-                                                                            ? BorderRadius.only(
-                                                                                topLeft: new Radius.circular(5.0),
-                                                                                bottomLeft: new Radius.circular(5.0),
-                                                                              )
-                                                                            : BorderRadius.only(
-                                                                                topRight: new Radius.circular(5.0),
-                                                                                bottomRight: new Radius.circular(5.0),
-                                                                              ),
-                                                                        border:
-                                                                            new Border.all(
-                                                                          color:
-                                                                              Colors.grey[350],
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              )
-                                                            : SizedBox(),
-                                                      ],
+                                                                    ],
+                                                                  ),
+                                                                )
+                                                              : SizedBox(),
+                                                        ],
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             )),
                                           );
                                         }),

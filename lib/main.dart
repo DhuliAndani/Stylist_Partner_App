@@ -3,6 +3,7 @@ import 'package:app/Theme/nativeTheme.dart';
 import 'package:app/l10n/l10n.dart';
 import 'package:app/provider/local_provider.dart';
 import 'package:app/screens/splashScreen.dart';
+import 'package:app/size_check.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
@@ -156,7 +158,7 @@ class MyAppState extends State<MyApp> {
         builder: (context, child) {
           final provider = Provider.of<LocaleProvider>(context);
 
-          return MaterialApp(
+          return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Barber',
               navigatorObservers: <NavigatorObserver>[observer],
@@ -169,10 +171,12 @@ class MyAppState extends State<MyApp> {
                 GlobalCupertinoLocalizations.delegate,
                 GlobalWidgetsLocalizations.delegate,
               ],
+
               home: SplashScreen(
                 a: analytics,
                 o: observer,
-              ));
+              )
+          );
         },
       );
 }
