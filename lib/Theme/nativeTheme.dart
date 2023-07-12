@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Map<int, Color> color = {
   50: Color.fromRGBO(255, 234, 0, .1),
@@ -24,102 +25,102 @@ ThemeData nativeTheme() {
       iconTheme: IconThemeData(color: Color(0xFFFF914D)),
       cardColor: Color(0xFFF8F1F7),
       textTheme: TextTheme(
-        labelLarge: TextStyle(color: Colors.black, fontSize: 17),
-        displayLarge: TextStyle(fontSize: 15, color: Colors.black),
+        labelLarge: TextStyle(color: Colors.black, fontSize: Get.height * 0.021),
+        displayLarge: TextStyle(fontSize: Get.height * 0.0172, color: Colors.black),
         displayMedium: TextStyle(
-            fontSize: 18,
+            fontSize: Get.height * 0.0225,
             color: Colors.black,
             fontWeight: FontWeight.w500,
-            letterSpacing: 0.32), //listtile subtitle white
+            letterSpacing: 0.32), //listTile subtitle white
         displaySmall: TextStyle(
-            fontSize: 21,
+            fontSize: Get.height * 0.0255,
             color: Colors.black,
             fontWeight: FontWeight.w500,
             letterSpacing: -0.5), // intro
         headlineMedium: TextStyle(
-            fontSize: 16,
+            fontSize: Get.height * 0.020,
             fontWeight: FontWeight.w600,
             color: Colors.black), //service
         headlineSmall: TextStyle(
-            fontSize: 13.5,
+           fontSize: Get.height * 0.0167,
             color: Colors.white.withOpacity(0.6),
             letterSpacing: 0.32,
             fontWeight: FontWeight.w300), // listtile white title
         titleLarge: TextStyle(
-            fontSize: 16,
+            fontSize: Get.height * 0.020,
             fontWeight: FontWeight.bold,
             color: Colors.black), //list's title
         titleMedium: TextStyle(
-            fontSize: 12.5,
+            fontSize: Get.height * 0.0155,
             color: Colors.grey[600],
             fontWeight: FontWeight.w400), // textform label, listtile title
         titleSmall: TextStyle(
-            fontSize: 14,
+            fontSize: Get.height * 0.0175,
             fontWeight: FontWeight.w600,
             color: Colors.black.withOpacity(0.6)), //listtile subtitle
         labelSmall: TextStyle(
-            fontSize: 31,
+            fontSize: Get.height * 0.0382,
             fontWeight: FontWeight.bold,
             color: Colors.black.withOpacity(0.7)),
         bodySmall: TextStyle(
             color: Colors.black54,
-            fontSize: 17,
+            fontSize: Get.height * 0.021,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.32), // drawer
 
         bodyLarge: TextStyle(
-            color: Colors.black, fontSize: 10, fontWeight: FontWeight.w400),
+            color: Colors.black, fontSize: Get.height * 0.0124, fontWeight: FontWeight.w400),
         bodyMedium: TextStyle(
-            color: Colors.black45, fontSize: 10, fontWeight: FontWeight.w400),
+            color: Colors.black45, fontSize: Get.height * 0.0124, fontWeight: FontWeight.w400),
       ),
       primaryTextTheme: TextTheme(
-        labelLarge: TextStyle(color: Colors.black, fontSize: 17),
-        displayLarge: TextStyle(fontSize: 15, color: Color(0xFFFF914D)),
+        labelLarge: TextStyle(color: Colors.black, fontSize: Get.height * 0.021),
+        displayLarge: TextStyle(fontSize: Get.height * 0.0172, color: Color(0xFFFF914D)),
         displayMedium: TextStyle(
-            fontSize: 18,
+            fontSize: Get.height * 0.0225,
             color: Colors.black,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.32), //listtile subtitle white
         displaySmall: TextStyle(
-            fontSize: 21,
+            fontSize: Get.height * 0.0255,
             color: Colors.black,
             fontWeight: FontWeight.w500,
             letterSpacing: -0.5), // intro
         headlineMedium: TextStyle(
-            fontSize: 16,
+            fontSize: Get.height * 0.020,
             fontWeight: FontWeight.w600,
             color: Colors.black), //service
         headlineSmall: TextStyle(
-            fontSize: 13.5,
+           fontSize: Get.height * 0.0167,
             color: Colors.white.withOpacity(0.6),
             letterSpacing: 0.32,
             fontWeight: FontWeight.w300), // listtile white title
         titleLarge: TextStyle(
-            fontSize: 16,
+            fontSize: Get.height * 0.020,
             fontWeight: FontWeight.bold,
             color: Colors.black), //list's title
         titleMedium: TextStyle(
-            fontSize: 12.5,
+            fontSize: Get.height * 0.0155,
             color: Colors.grey[600],
             fontWeight: FontWeight.w400), // textform label, listtile title
         titleSmall: TextStyle(
-            fontSize: 14,
+            fontSize: Get.height * 0.0175,
             fontWeight: FontWeight.w600,
             color: Colors.black.withOpacity(0.6)), //listtile subtitle
         labelSmall: TextStyle(
-            fontSize: 31,
+            fontSize: Get.height * 0.0382,
             fontWeight: FontWeight.bold,
             color: Colors.black.withOpacity(0.7)),
         bodySmall: TextStyle(
             color: Colors.black54,
-            fontSize: 17,
+            fontSize: Get.height * 0.021,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.32), // drawer
 
         bodyLarge: TextStyle(
-            color: Colors.black, fontSize: 10, fontWeight: FontWeight.w400),
+            color: Colors.black, fontSize: Get.height * 0.0124, fontWeight: FontWeight.w400),
         bodyMedium: TextStyle(
-            color: Colors.black45, fontSize: 10, fontWeight: FontWeight.w400),
+            color: Colors.black45, fontSize: Get.height * 0.0124, fontWeight: FontWeight.w400),
       ),
       scaffoldBackgroundColor: Colors.white,
       floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -136,14 +137,14 @@ ThemeData nativeTheme() {
           borderRadius: BorderRadius.circular(5),
         )),
         textStyle: MaterialStateProperty.all(TextStyle(
-            fontSize: 16, color: Colors.black, fontWeight: FontWeight.w600)),
+            fontSize: Get.height * 0.020, color: Colors.black, fontWeight: FontWeight.w600)),
       )),
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: ButtonStyle(
         side: MaterialStateProperty.all(
             BorderSide(color: Color(0xFFFF914D), width: 1.5)),
         textStyle: MaterialStateProperty.all(TextStyle(
-            fontSize: 16,
+            fontSize: Get.height * 0.020,
             color: Color(0xFFFF914D),
             fontWeight: FontWeight.w400)),
         shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -183,7 +184,7 @@ ThemeData nativeTheme() {
       ),
       inputDecorationTheme: InputDecorationTheme(
         hintStyle: TextStyle(
-          fontSize: 14,
+          fontSize: Get.height * 0.0175,
           color: Colors.grey[400],
           // color: Color(0xFF707173),
           fontWeight: FontWeight.w400,
@@ -233,7 +234,7 @@ ThemeData nativeTheme() {
             overlayColor: MaterialStateProperty.all(Colors.white),
             foregroundColor: MaterialStateProperty.all(Colors.white),
             textStyle: MaterialStateProperty.all(TextStyle(
-                fontSize: 16,
+                fontSize: Get.height * 0.020,
                 color: Colors.grey[800],
                 fontWeight: FontWeight.w600))),
       ),

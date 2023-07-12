@@ -7,6 +7,7 @@ import 'package:app/screens/walletDetailScreen.dart';
 import 'package:app/widgets/bottomNavigationBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MyWalletScreen extends BaseRoute {
@@ -124,7 +125,7 @@ class _MyWalletScreenState extends BaseRouteState {
                               child: ListView(
                               children: [
                                 Container(
-                                    height: 55,
+                                    height: Get.height * 0.07,
                                     margin: EdgeInsets.only(bottom: 5),
                                     width: MediaQuery.of(context).size.width,
                                     child: Card(
@@ -194,7 +195,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                 )));
                                   },
                                   child: Container(
-                                      height: 55,
+                                      height: Get.height * 0.07,
                                       margin: EdgeInsets.only(bottom: 5),
                                       width: MediaQuery.of(context).size.width,
                                       child: Card(
@@ -265,7 +266,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                 )));
                                   },
                                   child: Container(
-                                      height: 55,
+                                      height: Get.height * 0.07,
                                       margin: EdgeInsets.only(bottom: 5),
                                       width: MediaQuery.of(context).size.width,
                                       child: Card(
@@ -335,7 +336,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                 )));
                                   },
                                   child: Container(
-                                      height: 55,
+                                      height: Get.height * 0.07,
                                       margin: EdgeInsets.only(bottom: 5),
                                       width: MediaQuery.of(context).size.width,
                                       child: Card(
@@ -406,7 +407,7 @@ class _MyWalletScreenState extends BaseRouteState {
                                                 )));
                                   },
                                   child: Container(
-                                      height: 55,
+                                      height: Get.height * 0.07,
                                       margin: EdgeInsets.only(bottom: 5),
                                       width: MediaQuery.of(context).size.width,
                                       child: Card(

@@ -5,6 +5,7 @@ import 'package:app/screens/signInScreen.dart';
 import 'package:app/screens/signUpScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 
 class ChooseSignUpSignInScreen extends BaseRoute {
   ChooseSignUpSignInScreen({a, o})
@@ -58,7 +59,7 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 50),
-                  height: 50,
+                  height: Get.height * 0.06,
                   width: MediaQuery.of(context).size.width - 50,
                   child: ElevatedButton(
                     onPressed: () {
@@ -82,7 +83,7 @@ class _ChooseSignUpSignInScreenState extends BaseRouteState {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 20),
-                  height: 50,
+                  height: Get.height * 0.06,
                   width: MediaQuery.of(context).size.width - 50,
                   child: ElevatedButton(
                     onPressed: () {
