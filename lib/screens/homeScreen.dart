@@ -7,6 +7,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart' hide Badge;
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
+import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -270,7 +271,7 @@ class _HomeScreenState extends BaseRouteState {
                 _isDataLoaded
                     ? Container(
                         margin: EdgeInsets.only(left: 5, right: 5),
-                        height: 172,
+                        height: Get.height * 0.21,
                         width: (MediaQuery.of(context).size.width / 3) - 10,
                         child: Card(
                             elevation: 5,
@@ -353,7 +354,7 @@ class _HomeScreenState extends BaseRouteState {
                 _isDataLoaded
                     ? Container(
                         margin: EdgeInsets.only(left: 5, right: 5),
-                        height: 172,
+                        height: Get.height * 0.21,
                         width: (MediaQuery.of(context).size.width / 3) - 20,
                         child: Card(
                             elevation: 5,
@@ -439,7 +440,7 @@ class _HomeScreenState extends BaseRouteState {
                 _isDataLoaded
                     ? Container(
                         margin: EdgeInsets.only(left: 5, right: 5),
-                        height: 172,
+                        height: Get.height * 0.21,
                         width: (MediaQuery.of(context).size.width / 3) - 20,
                         child: Card(
                             elevation: 5,

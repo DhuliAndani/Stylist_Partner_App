@@ -9,6 +9,7 @@ import 'package:app/widgets/bottomNavigationBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ProductListScreen extends BaseRoute {
@@ -132,7 +133,7 @@ class _ProductListScreenState extends BaseRouteState {
                                         itemBuilder:
                                             (BuildContext context, int index) {
                                           return Container(
-                                            height: 85,
+                                            height: Get.height * 0.1,
                                             padding: const EdgeInsets.only(
                                                 bottom: 8),
                                             child: Card(
@@ -253,13 +254,17 @@ class _ProductListScreenState extends BaseRouteState {
                                                 Container(
                                                   margin:
                                                       EdgeInsets.only(right: 5),
-                                                  height: 40,
-                                                  width: 100,
+                                                  height: Get.height * 0.06,
+                                                  width: Get.width * 0.27,
                                                   child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
                                                     children: [
                                                       Container(
-                                                        height: 30,
-                                                        width: 70,
+                                                        height:
+                                                            Get.height * 0.04,
+                                                        width: Get.width * 0.18,
                                                         decoration: BoxDecoration(
                                                             border: Border.all(
                                                                 color: Theme.of(

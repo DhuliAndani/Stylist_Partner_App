@@ -10,6 +10,7 @@ import 'package:app/widgets/bottomNavigationBar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:shimmer/shimmer.dart';
 
 class ServiceListScreen extends BaseRoute {
@@ -135,225 +136,235 @@ class _ServiceListScreenState extends BaseRouteState {
                                             padding: const EdgeInsets.only(
                                                 top: 5, bottom: 5),
                                             child: Card(
-                                              child: ExpansionTile(
-                                                tilePadding:
-                                                    EdgeInsets.only(left: 2),
-                                                children: [
-                                                  _serviceVariant1(index)
-                                                ],
-                                                trailing: Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(),
-                                                  child: PopupMenuButton(
-                                                      itemBuilder: (BuildContext
-                                                          context) {
-                                                    return [
-                                                      PopupMenuItem(
-                                                        padding:
-                                                            EdgeInsets.all(0),
-                                                        child: new ListTile(
-                                                          leading: Icon(
-                                                            Icons.edit,
-                                                            color: Theme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                          ),
-                                                          title: Text(
-                                                            AppLocalizations.of(
-                                                                    context)
-                                                                .lbl_edit,
-                                                            style: Theme.of(
-                                                                    context)
-                                                                .primaryTextTheme
-                                                                .titleSmall,
-                                                          ),
-                                                          onTap: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                            Navigator.of(context).push(
-                                                                MaterialPageRoute(
-                                                                    builder:
-                                                                        (context) =>
-                                                                            AddServiceScreen(
-                                                                              a: widget.analytics,
-                                                                              o: widget.observer,
-                                                                              service: _serviceList[index],
-                                                                            )));
-                                                          },
-                                                        ),
-                                                      ),
-                                                      PopupMenuItem(
-                                                        padding:
-                                                            EdgeInsets.all(0),
-                                                        child: new ListTile(
-                                                          leading: Icon(
-                                                              Icons.delete,
-                                                              color: Theme.of(
-                                                                      context)
-                                                                  .primaryColor),
-                                                          title: Text(
-                                                              AppLocalizations.of(
-                                                                      context)
-                                                                  .lbl_delete,
-                                                              style: Theme.of(
-                                                                      context)
-                                                                  .primaryTextTheme
-                                                                  .titleSmall),
-                                                          onTap: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                            _deleteServiceConfirmationDialog(
-                                                                _serviceList[
-                                                                        index]
-                                                                    .service_id,
-                                                                index);
-                                                          },
-                                                        ),
-                                                      ),
-                                                      PopupMenuItem(
-                                                        padding:
-                                                            EdgeInsets.all(0),
-                                                        child: new ListTile(
-                                                          leading: Icon(
-                                                            Icons.add,
-                                                            color: Theme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                          ),
-                                                          title: Text(
-                                                            AppLocalizations.of(
-                                                                    context)
-                                                                .lbl_add_service_variant,
-                                                            style: Theme.of(
-                                                                    context)
-                                                                .primaryTextTheme
-                                                                .titleSmall,
-                                                          ),
-                                                          onTap: () {
-                                                            Navigator.of(
-                                                                    context)
-                                                                .pop();
-                                                            Navigator.of(context).push(
-                                                                MaterialPageRoute(
-                                                                    builder:
-                                                                        (context) =>
-                                                                            AddServiceVariantScreen(
-                                                                              _serviceList[index].service_id,
-                                                                              a: widget.analytics,
-                                                                              o: widget.observer,
-                                                                            )));
-                                                          },
-                                                        ),
-                                                      ),
-                                                    ];
-                                                  }),
-                                                ),
-                                                title: Container(
-                                                  height: 70,
-                                                  child: Row(
+                                              child: Container(
+                                                height: Get.height * 0.1,
+                                                child: Center(
+                                                  child: ExpansionTile(
+                                                    tilePadding:
+                                                        EdgeInsets.only(
+                                                            left: 2),
                                                     children: [
-                                                      Container(
-                                                        margin: EdgeInsets.only(
-                                                            left: 3, right: 3),
-                                                        child: ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                  Radius
-                                                                      .circular(
-                                                                          7)),
-                                                          child: Container(
-                                                            decoration: BoxDecoration(
-                                                                borderRadius: BorderRadius
-                                                                    .all(Radius
-                                                                        .circular(
-                                                                            15))),
-                                                            height: 70,
-                                                            width: 70,
-                                                            child: _serviceList[
-                                                                            index]
-                                                                        .service_image ==
-                                                                    'N/A'
-                                                                ? Image.asset(
-                                                                    'assets/sample_image.jpg',
-                                                                    fit: BoxFit
-                                                                        .cover,
-                                                                  )
-                                                                : CachedNetworkImage(
-                                                                    imageUrl: global
-                                                                            .baseUrlForImage +
-                                                                        _serviceList[index]
-                                                                            .service_image,
-                                                                    imageBuilder:
-                                                                        (context,
-                                                                                imageProvider) =>
-                                                                            Container(
-                                                                      height:
-                                                                          70,
-                                                                      decoration: BoxDecoration(
-                                                                          image: DecorationImage(
-                                                                              fit: BoxFit.cover,
-                                                                              image: imageProvider)),
-                                                                    ),
-                                                                    placeholder: (context,
-                                                                            url) =>
-                                                                        Center(
-                                                                            child:
-                                                                                CircularProgressIndicator()),
-                                                                    errorWidget: (context,
-                                                                            url,
-                                                                            error) =>
-                                                                        Icon(Icons
-                                                                            .error),
-                                                                  ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Padding(
-                                                          padding: global.isRTL
-                                                              ? EdgeInsets.only(
-                                                                  right: 15.0,
-                                                                  top: 10)
-                                                              : EdgeInsets.only(
-                                                                  left: 15.0,
-                                                                  top: 10),
-                                                          child: Column(
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .start,
-                                                            children: [
-                                                              Container(
-                                                                  child: Text(
-                                                                '${_serviceList[index].service_name}',
+                                                      _serviceVariant1(index)
+                                                    ],
+                                                    trailing: Padding(
+                                                      padding: const EdgeInsets
+                                                          .only(),
+                                                      child: PopupMenuButton(
+                                                          itemBuilder:
+                                                              (BuildContext
+                                                                  context) {
+                                                        return [
+                                                          PopupMenuItem(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    0),
+                                                            child: new ListTile(
+                                                              leading: Icon(
+                                                                Icons.edit,
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                              ),
+                                                              title: Text(
+                                                                AppLocalizations.of(
+                                                                        context)
+                                                                    .lbl_edit,
                                                                 style: Theme.of(
                                                                         context)
                                                                     .primaryTextTheme
                                                                     .titleSmall,
-                                                              )),
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                            .only(
-                                                                        top: 2),
-                                                                child: Text(
-                                                                  _serviceList[index]
-                                                                              .createdAt !=
-                                                                          "N/A"
-                                                                      ? '${_serviceList[index].createdAt}'
-                                                                      : '',
+                                                              ),
+                                                              onTap: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .push(MaterialPageRoute(
+                                                                        builder: (context) => AddServiceScreen(
+                                                                              a: widget.analytics,
+                                                                              o: widget.observer,
+                                                                              service: _serviceList[index],
+                                                                            )));
+                                                              },
+                                                            ),
+                                                          ),
+                                                          PopupMenuItem(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    0),
+                                                            child: new ListTile(
+                                                              leading: Icon(
+                                                                  Icons.delete,
+                                                                  color: Theme.of(
+                                                                          context)
+                                                                      .primaryColor),
+                                                              title: Text(
+                                                                  AppLocalizations.of(
+                                                                          context)
+                                                                      .lbl_delete,
                                                                   style: Theme.of(
                                                                           context)
                                                                       .primaryTextTheme
-                                                                      .titleMedium,
-                                                                ),
-                                                              )
-                                                            ],
+                                                                      .titleSmall),
+                                                              onTap: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                                _deleteServiceConfirmationDialog(
+                                                                    _serviceList[
+                                                                            index]
+                                                                        .service_id,
+                                                                    index);
+                                                              },
+                                                            ),
                                                           ),
-                                                        ),
+                                                          PopupMenuItem(
+                                                            padding:
+                                                                EdgeInsets.all(
+                                                                    0),
+                                                            child: new ListTile(
+                                                              leading: Icon(
+                                                                Icons.add,
+                                                                color: Theme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                              ),
+                                                              title: Text(
+                                                                AppLocalizations.of(
+                                                                        context)
+                                                                    .lbl_add_service_variant,
+                                                                style: Theme.of(
+                                                                        context)
+                                                                    .primaryTextTheme
+                                                                    .titleSmall,
+                                                              ),
+                                                              onTap: () {
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .pop();
+                                                                Navigator.of(
+                                                                        context)
+                                                                    .push(MaterialPageRoute(
+                                                                        builder: (context) => AddServiceVariantScreen(
+                                                                              _serviceList[index].service_id,
+                                                                              a: widget.analytics,
+                                                                              o: widget.observer,
+                                                                            )));
+                                                              },
+                                                            ),
+                                                          ),
+                                                        ];
+                                                      }),
+                                                    ),
+                                                    title: Container(
+                                                      //height: 70,
+                                                      child: Row(
+                                                        children: [
+                                                          Container(
+                                                            margin:
+                                                                EdgeInsets.only(
+                                                                    left: 3,
+                                                                    right: 3),
+                                                            child: ClipRRect(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .all(Radius
+                                                                          .circular(
+                                                                              7)),
+                                                              child: Container(
+                                                                decoration: BoxDecoration(
+                                                                    borderRadius:
+                                                                        BorderRadius.all(
+                                                                            Radius.circular(15))),
+                                                                height:
+                                                                    Get.height *
+                                                                        0.08,
+                                                                width:
+                                                                    Get.width *
+                                                                        0.18,
+                                                                child: _serviceList[index]
+                                                                            .service_image ==
+                                                                        'N/A'
+                                                                    ? Image
+                                                                        .asset(
+                                                                        'assets/sample_image.jpg',
+                                                                        fit: BoxFit
+                                                                            .cover,
+                                                                      )
+                                                                    : CachedNetworkImage(
+                                                                        imageUrl:
+                                                                            global.baseUrlForImage +
+                                                                                _serviceList[index].service_image,
+                                                                        imageBuilder:
+                                                                            (context, imageProvider) =>
+                                                                                Container(
+                                                                          height:
+                                                                              70,
+                                                                          decoration:
+                                                                              BoxDecoration(image: DecorationImage(fit: BoxFit.cover, image: imageProvider)),
+                                                                        ),
+                                                                        placeholder:
+                                                                            (context, url) =>
+                                                                                Center(child: CircularProgressIndicator()),
+                                                                        errorWidget: (context,
+                                                                                url,
+                                                                                error) =>
+                                                                            Icon(Icons.error),
+                                                                      ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Expanded(
+                                                            child: Padding(
+                                                              padding: global
+                                                                      .isRTL
+                                                                  ? EdgeInsets
+                                                                      .only(
+                                                                      right:
+                                                                          15.0,
+                                                                    )
+                                                                  : EdgeInsets
+                                                                      .only(
+                                                                      left:
+                                                                          15.0,
+                                                                    ),
+                                                              child: Column(
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .start,
+                                                                children: [
+                                                                  Container(
+                                                                      child:
+                                                                          Text(
+                                                                    '${_serviceList[index].service_name}',
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .primaryTextTheme
+                                                                        .titleSmall,
+                                                                  )),
+                                                                  Padding(
+                                                                    padding: const EdgeInsets
+                                                                            .only(
+                                                                        top: 2),
+                                                                    child: Text(
+                                                                      _serviceList[index].createdAt !=
+                                                                              "N/A"
+                                                                          ? '${_serviceList[index].createdAt}'
+                                                                          : '',
+                                                                      style: Theme.of(
+                                                                              context)
+                                                                          .primaryTextTheme
+                                                                          .titleMedium,
+                                                                    ),
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        ],
                                                       ),
-                                                    ],
+                                                    ),
                                                   ),
                                                 ),
                                               ),
