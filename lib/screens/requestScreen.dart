@@ -5,6 +5,8 @@ import 'package:app/models/userRequestModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RequestScreen extends BaseRoute {
@@ -76,6 +78,7 @@ class _RequestScreenState extends BaseRouteState {
                                         print(_userRequest[index]);
                                         // print(_userRequest[index].user.image);
                                         return Container(
+                                          // height: Get.height * 0.13,
                                           child: Card(
                                             margin:
                                                 const EdgeInsets.only(top: 8),
@@ -261,6 +264,9 @@ class _RequestScreenState extends BaseRouteState {
                                                                 },
                                                                 child:
                                                                     Container(
+                                                                  // height:
+                                                                  //     Get.height *
+                                                                  //         0.15,
                                                                   height: 30,
                                                                   width: 130,
                                                                   margin: EdgeInsets
