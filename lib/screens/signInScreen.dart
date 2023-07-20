@@ -66,7 +66,6 @@ class _SignInScreenState extends BaseRouteState {
                             BlendMode.screen,
                           ),
                           child: Image.asset(
-                            
                             'assets/banner.jpg',
                             fit: BoxFit.cover,
                           ),
@@ -143,7 +142,7 @@ class _SignInScreenState extends BaseRouteState {
                                       .titleSmall,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5),
+                                  padding: const EdgeInsets.only(top: 8),
                                   child: TextFormField(
                                     onEditingComplete: () {
                                       FocusScope.of(context)
@@ -158,12 +157,12 @@ class _SignInScreenState extends BaseRouteState {
                                       hintText: AppLocalizations.of(context)
                                           .hnt_email,
                                       prefixIcon: Icon(Icons.mail),
-                                      contentPadding: EdgeInsets.only(top: 5),
+                                      contentPadding: EdgeInsets.only(top: 8),
                                     ),
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(top: 5),
+                                  margin: EdgeInsets.only(top: 8),
                                   child: Text(
                                     AppLocalizations.of(context).lblPassword,
                                     style: Theme.of(context)
@@ -172,7 +171,7 @@ class _SignInScreenState extends BaseRouteState {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 5),
+                                  padding: const EdgeInsets.only(top: 8),
                                   child: TextFormField(
                                     focusNode: _fPassword,
                                     controller: _cPassword,
@@ -198,7 +197,7 @@ class _SignInScreenState extends BaseRouteState {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 10),
+                            margin: EdgeInsets.only(top: 15),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [

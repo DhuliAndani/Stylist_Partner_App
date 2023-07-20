@@ -5,6 +5,8 @@ import 'package:app/models/businessLayer/global.dart' as global;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
+// import 'package:get/get_core/src/get_main.dart';
 import 'package:shimmer/shimmer.dart';
 
 class AppointmentHistoryScreen extends BaseRoute {
@@ -192,9 +194,10 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: 80,
+                                                  width: Get.width * 0.15,
+                                                  // width: 85,
                                                   margin:
-                                                      EdgeInsets.only(right: 5),
+                                                      EdgeInsets.only(right: 8),
                                                   padding:
                                                       const EdgeInsets.only(
                                                           top: 15),
@@ -205,19 +208,30 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                     children: [
                                                       Text(
                                                         '${global.currency.currency_sign}${_appointmentHistoryList[index].totalPrice}',
-                                                        style: Theme.of(context)
-                                                            .primaryTextTheme
-                                                            .titleSmall,
+                                                        style: TextStyle(
+                                                            fontSize:
+                                                                Get.height *
+                                                                    0.015,
+                                                            color:
+                                                                Colors.black),
+                                                        // Theme.of(context)
+                                                        //     .primaryTextTheme
+                                                        //     .titleSmall,
                                                       ),
                                                       Container(
                                                         height: 40,
                                                         width: 118,
                                                         child: Text(
                                                           '${_appointmentHistoryList[index].statustext}',
-                                                          style: Theme.of(
-                                                                  context)
-                                                              .primaryTextTheme
-                                                              .titleMedium,
+                                                          style: TextStyle(
+                                                              fontSize:
+                                                                  Get.height *
+                                                                      0.013,
+                                                              color: Colors
+                                                                  .black54),
+                                                          // Theme.of(context)
+                                                          //     .primaryTextTheme
+                                                          //     .titleMedium,
                                                           maxLines: 2,
                                                           overflow: TextOverflow
                                                               .ellipsis,

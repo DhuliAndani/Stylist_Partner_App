@@ -5,8 +5,8 @@ import 'package:app/models/userRequestModel.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+// import 'package:get/get.dart';
+// import 'package:get/get_core/src/get_main.dart';
 import 'package:shimmer/shimmer.dart';
 
 class RequestScreen extends BaseRoute {
@@ -174,7 +174,8 @@ class _RequestScreenState extends BaseRouteState {
                                                   subtitle: Padding(
                                                     padding:
                                                         const EdgeInsets.only(
-                                                            left: 0),
+                                                      left: 0,
+                                                    ),
                                                     child: Text(
                                                       '${_userRequest[index].service_date}\n${_userRequest[index].service_time}',
                                                       style: Theme.of(context)
@@ -186,145 +187,147 @@ class _RequestScreenState extends BaseRouteState {
                                                     ),
                                                   ),
                                                   horizontalTitleGap: 7,
-                                                  trailing: Container(
-                                                    child: Column(
-                                                      mainAxisSize:
-                                                          MainAxisSize.min,
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .end,
-                                                      children: [
-                                                        _userRequest[index]
-                                                                    .statustext ==
-                                                                "Pending"
-                                                            ? Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .min,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .center,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  InkWell(
-                                                                    onTap: () {
-                                                                      _userRequestDialog(
-                                                                          index);
-                                                                    },
-                                                                    child: Container(
-                                                                        padding: EdgeInsets.all(4),
-                                                                        decoration: BoxDecoration(
-                                                                          color:
-                                                                              Theme.of(context).primaryColor,
-                                                                          borderRadius:
-                                                                              BorderRadius.all(
-                                                                            Radius.circular(11),
-                                                                          ),
+                                                  trailing: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment.end,
+                                                    children: [
+                                                      _userRequest[index]
+                                                                  .statustext ==
+                                                              "Pending"
+                                                          ? Row(
+                                                              mainAxisSize:
+                                                                  MainAxisSize
+                                                                      .min,
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .center,
+                                                              crossAxisAlignment:
+                                                                  CrossAxisAlignment
+                                                                      .center,
+                                                              children: [
+                                                                InkWell(
+                                                                  onTap: () {
+                                                                    _userRequestDialog(
+                                                                        index);
+                                                                  },
+                                                                  child: Container(
+                                                                      padding: EdgeInsets.all(4),
+                                                                      decoration: BoxDecoration(
+                                                                        color: Theme.of(context)
+                                                                            .primaryColor,
+                                                                        borderRadius:
+                                                                            BorderRadius.all(
+                                                                          Radius.circular(
+                                                                              11),
                                                                         ),
-                                                                        child: Text(
-                                                                          'Accept',
-                                                                          style: Theme.of(context)
-                                                                              .primaryTextTheme
-                                                                              .bodyLarge,
-                                                                        )),
-                                                                  ),
-                                                                  InkWell(
-                                                                    onTap: () {
-                                                                      _requestCancelConfirmationDialog(
-                                                                          _userRequest[index]
-                                                                              .id);
-                                                                    },
-                                                                    child: Container(
-                                                                        margin: EdgeInsets.only(left: 3, right: 6),
-                                                                        padding: EdgeInsets.all(4),
-                                                                        decoration: BoxDecoration(color: Theme.of(context).primaryColorLight, borderRadius: BorderRadius.all(Radius.circular(12))),
-                                                                        child: Text(
-                                                                          'Cancel',
-                                                                          style: Theme.of(context)
-                                                                              .primaryTextTheme
-                                                                              .bodyMedium,
-                                                                        )),
-                                                                  )
-                                                                ],
-                                                              )
-                                                            : GestureDetector(
-                                                                onTap: () {
-                                                                  if (_userRequest[
-                                                                              index]
-                                                                          .statustext ==
-                                                                      "Confirmed") {
-                                                                    _requestCompleteConfirmationDialog(
+                                                                      ),
+                                                                      child: Text(
+                                                                        'Accept',
+                                                                        style: Theme.of(context)
+                                                                            .primaryTextTheme
+                                                                            .bodyLarge,
+                                                                      )),
+                                                                ),
+                                                                InkWell(
+                                                                  onTap: () {
+                                                                    _requestCancelConfirmationDialog(
                                                                         _userRequest[index]
                                                                             .id);
-                                                                  }
-                                                                  // Navigator.pop(
-                                                                  //     context);
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  // height:
-                                                                  //     Get.height *
-                                                                  //         0.15,
-                                                                  height: 30,
-                                                                  width: 130,
-                                                                  margin: EdgeInsets
-                                                                      .only(
-                                                                          left:
-                                                                              5,
-                                                                          right:
-                                                                              5),
-                                                                  decoration: BoxDecoration(
-                                                                      color: _userRequest[index].statustext == "Pending"
-                                                                          ? Colors.amber
-                                                                          : _userRequest[index].statustext == "Completed"
-                                                                              ? Colors.green[600]
-                                                                              : _userRequest[index].statustext == "Cancelled"
-                                                                                  ? Colors.grey
-                                                                                  : _userRequest[index].statustext == "Payment Failed"
-                                                                                      ? Colors.red
-                                                                                      : _userRequest[index].statustext == "Confirmed"
-                                                                                          ? Colors.blue[600]
-                                                                                          : Colors.red,
-                                                                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                                                                  padding:
-                                                                      EdgeInsets
-                                                                          .all(
-                                                                              4),
-                                                                  child: Center(
-                                                                    child: Text(
-                                                                      '${_userRequest[index].statustext}',
-                                                                      style: Theme.of(
-                                                                              context)
-                                                                          .primaryTextTheme
-                                                                          .headlineSmall
-                                                                          .copyWith(
-                                                                              color: Theme.of(context).primaryTextTheme.headlineSmall.color.withOpacity(0.8)),
-                                                                      overflow:
-                                                                          TextOverflow
-                                                                              .ellipsis,
-                                                                    ),
+                                                                  },
+                                                                  child: Container(
+                                                                      margin: EdgeInsets.only(left: 3, right: 6),
+                                                                      padding: EdgeInsets.all(4),
+                                                                      decoration: BoxDecoration(color: Theme.of(context).primaryColorLight, borderRadius: BorderRadius.all(Radius.circular(12))),
+                                                                      child: Text(
+                                                                        'Cancel',
+                                                                        style: Theme.of(context)
+                                                                            .primaryTextTheme
+                                                                            .bodyMedium,
+                                                                      )),
+                                                                )
+                                                              ],
+                                                            )
+                                                          : GestureDetector(
+                                                              onTap: () {
+                                                                if (_userRequest[
+                                                                            index]
+                                                                        .statustext ==
+                                                                    "Confirmed") {
+                                                                  _requestCompleteConfirmationDialog(
+                                                                      _userRequest[
+                                                                              index]
+                                                                          .id);
+                                                                }
+                                                                // Navigator.pop(
+                                                                //     context);
+                                                              },
+                                                              child: Container(
+                                                                // height:
+                                                                //     Get.height *
+                                                                //         0.15,
+                                                                height: 30,
+                                                                width: 130,
+                                                                margin: EdgeInsets
+                                                                    .only(
+                                                                        left: 5,
+                                                                        right:
+                                                                            5),
+                                                                decoration: BoxDecoration(
+                                                                    color: _userRequest[index].statustext == "Pending"
+                                                                        ? Colors.amber
+                                                                        : _userRequest[index].statustext == "Completed"
+                                                                            ? Colors.green[600]
+                                                                            : _userRequest[index].statustext == "Cancelled"
+                                                                                ? Colors.grey
+                                                                                : _userRequest[index].statustext == "Payment Failed"
+                                                                                    ? Colors.red
+                                                                                    : _userRequest[index].statustext == "Confirmed"
+                                                                                        ? Colors.blue[600]
+                                                                                        : Colors.red,
+                                                                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(4),
+                                                                child: Center(
+                                                                  child: Text(
+                                                                    '${_userRequest[index].statustext}',
+                                                                    style: Theme.of(
+                                                                            context)
+                                                                        .primaryTextTheme
+                                                                        .headlineSmall
+                                                                        .copyWith(
+                                                                            color:
+                                                                                Theme.of(context).primaryTextTheme.headlineSmall.color.withOpacity(0.8)),
+                                                                    overflow:
+                                                                        TextOverflow
+                                                                            .ellipsis,
                                                                   ),
                                                                 ),
                                                               ),
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  top: 3,
-                                                                  left: 15,
-                                                                  right: 5),
-                                                          child: Text(
-                                                            '${global.currency.currency_sign}${_userRequest[index].total_price}',
-                                                            style: Theme.of(
-                                                                    context)
-                                                                .primaryTextTheme
-                                                                .titleSmall,
+                                                            ),
+                                                      // SizedBox(height: 3),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                // top: 5,
+                                                                bottom: 3,
+                                                                left: 10,
+                                                                right: 5),
+                                                        child: Text(
+                                                          '${global.currency.currency_sign}${_userRequest[index].total_price}',
+                                                          style: TextStyle(
+                                                            fontSize: 14.6,
                                                           ),
+                                                          // Theme.of(
+                                                          //         context)
+                                                          //     .primaryTextTheme
+                                                          //     .titleSmall,
                                                         ),
-                                                      ],
-                                                    ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                                 Container(

@@ -78,7 +78,7 @@ class _HelpAndSupportScreenState extends BaseRouteState {
                           topLeft: Radius.circular(20),
                           topRight: Radius.circular(20)),
                     ),
-                    margin: EdgeInsets.only(top: 60),
+                    margin: EdgeInsets.only(top: 45),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: Container(
