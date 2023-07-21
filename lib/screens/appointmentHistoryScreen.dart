@@ -194,7 +194,7 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: Get.width * 0.15,
+                                                  width: Get.width * 0.16,
                                                   // width: 85,
                                                   margin:
                                                       EdgeInsets.only(right: 8),
@@ -211,7 +211,7 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                         style: TextStyle(
                                                             fontSize:
                                                                 Get.height *
-                                                                    0.015,
+                                                                    0.016,
                                                             color:
                                                                 Colors.black),
                                                         // Theme.of(context)

@@ -319,10 +319,10 @@ class _RequestScreenState extends BaseRouteState {
                                                         child: Text(
                                                           '${global.currency.currency_sign}${_userRequest[index].total_price}',
                                                           style: TextStyle(
-                                                            fontSize: 14.6,
-                                                          ),
-                                                          // Theme.of(
-                                                          //         context)
+                                                              fontSize: 14.6,
+                                                              color:
+                                                                  Colors.black),
+                                                          // Theme.of(context)
                                                           //     .primaryTextTheme
                                                           //     .titleSmall,
                                                         ),

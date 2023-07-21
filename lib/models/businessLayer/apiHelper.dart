@@ -1237,6 +1237,7 @@ class APIHelper {
       }
 
       return getAPIResultDio(response, recordList);
+      // ignore: deprecated_member_use
     } on DioError catch (e) {
       print("Exception - signUp(): " + e.toString());
       print("Exception Message------->>>>>>>" + e.message);
