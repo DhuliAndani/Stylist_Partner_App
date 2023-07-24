@@ -15,8 +15,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:http/http.dart' as http;
 
-// New Project clone
-
+// New Project clone 10:30 AM Monday
+// new changes done
 FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 AndroidNotificationChannel channel = const AndroidNotificationChannel(
   'high_importance_channel_for_partner',
