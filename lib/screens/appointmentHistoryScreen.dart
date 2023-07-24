@@ -194,7 +194,7 @@ class _AppointmentHistoryScreenState extends BaseRouteState {
                                                   ),
                                                 ),
                                                 Container(
-                                                  width: Get.width * 0.16,
+                                                  width: Get.width * 0.17,
                                                   // width: 85,
                                                   margin:
                                                       EdgeInsets.only(right: 8),

@@ -154,6 +154,8 @@ class _SignInScreenState extends BaseRouteState {
                                           EmailValidator.validate(val);
                                     },
                                     decoration: InputDecoration(
+                                      border: OutlineInputBorder(
+                                          borderSide: BorderSide(width: 2)),
                                       hintText: AppLocalizations.of(context)
                                           .hnt_email,
                                       prefixIcon: Icon(Icons.mail),
